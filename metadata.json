@@ -1,0 +1,6 @@
+{
+  "name": "LipaTim - Smart Business & eTIMS Suite",
+  "description": "Lightweight ERP, POS, inventory, and automated KRA eTIMS & M-Pesa compliance suite for Kenyan SMEs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

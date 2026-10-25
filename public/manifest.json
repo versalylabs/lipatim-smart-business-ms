@@ -1,0 +1,37 @@
+{
+  "id": "/",
+  "name": "LipaTim Smart POS & KRA eTIMS Suite",
+  "short_name": "LipaTim POS",
+  "description": "Offline-first Kenyan multi-branch retail POS, Safaricom Daraja M-Pesa, and KRA eTIMS compliance.",
+  "theme_color": "#059669",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "scope": "/",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open POS Counter",
+      "short_name": "POS Counter",
+      "description": "Launch cashier checkout and barcode scanner",
+      "url": "/#pos",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Shift Z-Report & VAT 3",
+      "short_name": "Z-Report",
+      "description": "View daily Z-Report and KRA VAT 3 export",
+      "url": "/#reports",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    }
+  ]
+}
