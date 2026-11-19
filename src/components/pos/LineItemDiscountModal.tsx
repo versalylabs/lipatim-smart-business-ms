@@ -15,7 +15,7 @@ export const LineItemDiscountModal: React.FC<LineItemDiscountModalProps> = ({
   onApplyDiscount,
   onClose,
 }) => {
-  const { currentRole, permissions, notify } = useApp();
+  const { currentRole, permissions, notify, users } = useApp();
   const [discountType, setDiscountType] = useState<'percent' | 'fixed'>('percent');
   const [discountValue, setDiscountValue] = useState(
     item.discountPerUnit > 0 ? item.discountPerUnit.toString() : '5'
@@ -29,9 +29,12 @@ export const LineItemDiscountModal: React.FC<LineItemDiscountModalProps> = ({
     e.preventDefault();
     const val = parseFloat(discountValue) || 0;
 
-    // Cashier requires Manager PIN: 1234
+    // A cashier needs a PIN belonging to an active manager.
     if (isCashier && !permissions.canApplyCustomDiscount) {
-      if (managerPin !== '1234') {
+      const managerApproved = users.some(
+        (user) => user.active && user.role === 'manager' && user.pinCode === managerPin
+      );
+      if (!managerApproved) {
         setPinError('Invalid Manager Authorization PIN. Ask Store Manager to approve.');
         return;
       }
@@ -141,7 +144,7 @@ export const LineItemDiscountModal: React.FC<LineItemDiscountModalProps> = ({
               <span>Manager Authorization Required</span>
             </div>
             <div className="text-[11px] text-amber-800">
-              Cashiers cannot issue price cuts without manager PIN authorization (Demo PIN: <strong className="font-mono">1234</strong>).
+              Ask an active store manager to enter their PIN to approve this discount.
             </div>
             <input
               type="password"

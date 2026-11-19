@@ -109,10 +109,10 @@ export const AuditLogView: React.FC = () => {
             </div>
             <div>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                System Audit Trail &amp; Activity Log
+                Activity log
               </h1>
               <p className="text-xs text-slate-500 mt-0.5">
-                Real-time compliance record for operations, cash shifts, stock adjustments, and RBAC events
+                Sales, stock changes and staff activity recorded in this business.
               </p>
             </div>
           </div>

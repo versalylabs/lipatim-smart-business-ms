@@ -90,9 +90,9 @@ export const MpesaView: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Safaricom Daraja M-Pesa Hub</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">M-Pesa payments</h1>
           <p className="text-xs text-slate-500 mt-1">
-            Real-time Daraja STK Push engine, Till {darajaConfig.tillNumber} stream, and end-of-shift fraud prevention.
+            Review payments and match them to sales.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export const MpesaView: React.FC = () => {
             className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg shadow-2xs transition-colors"
           >
             <Settings className="w-3.5 h-3.5 text-slate-500" />
-            <span>API Credentials</span>
+              <span>Payment settings</span>
           </button>
 
           <button

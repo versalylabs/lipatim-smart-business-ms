@@ -115,15 +115,15 @@ export const ExecutiveDashboard: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-              Executive Cockpit &amp; Business Intelligence
+              Business overview
             </h1>
             <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
               <Sparkles className="w-3 h-3 text-emerald-600" />
-              <span>Live Telemetry</span>
+              <span>Today at a glance</span>
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Real-time branch sales velocity, KRA eTIMS compliance, Daraja M-Pesa settlements &amp; profit analytics.
+            Sales, stock, M-Pesa and profit across your business.
           </p>
         </div>
 

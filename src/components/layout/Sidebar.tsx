@@ -185,7 +185,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
               key={item.id}
               type="button"
               onClick={() => handleNavClick(item.id)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-medium transition-all ${
+              className={`w-full min-h-12 flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
                   ? 'bg-emerald-600 text-white shadow-sm font-semibold'
                   : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'

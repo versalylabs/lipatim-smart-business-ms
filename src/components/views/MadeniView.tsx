@@ -128,7 +128,7 @@ export const MadeniView: React.FC = () => {
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Enforce strict customer credit limits, manage 14-day repayment schedules, and send automated bilingual SMS reminders.
+            Track customer balances and record repayments.
           </p>
         </div>
 

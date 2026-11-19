@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Building2, Database, KeyRound, Search, Users } from 'lucide-react';
+import { Building2, Database, Search, Users } from 'lucide-react';
 import { DEMO_ACCOUNT, DEMO_TENANT, Tenant } from '../../types/auth';
 import { useApp } from '../../context/AppContext';
 
@@ -78,18 +78,8 @@ export const PlatformView: React.FC = () => {
         <Metric icon={<Database className="w-4 h-4" />} label="Products" value={totalProducts} />
       </section>
 
-      <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-start gap-3">
-          <span className="rounded-xl bg-white p-2 text-emerald-700"><KeyRound className="w-5 h-5" /></span>
-          <div>
-            <h2 className="font-bold text-slate-900">Demo account sign-in</h2>
-            <p className="text-xs text-slate-600 mt-1">Use these details on the sign-in page to reopen the shared demo workspace on this browser.</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-1 text-xs font-mono bg-white/80 rounded-lg px-3 py-2">
-          <span className="text-slate-500">Email</span><span className="font-bold text-slate-800">{DEMO_ACCOUNT.email}</span>
-          <span className="text-slate-500">Password</span><span className="font-bold text-slate-800">{DEMO_ACCOUNT.password}</span>
-        </div>
+      <section className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
+        The demo business is included in this list. Sign in with your account password to reopen its saved data on this browser.
       </section>
 
       <section className="bg-white border border-slate-200 rounded-2xl overflow-hidden">

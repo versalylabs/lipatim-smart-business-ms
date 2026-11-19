@@ -85,7 +85,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onToggleMobileMenu }) => {
           }}
           className="text-base sm:text-lg font-bold tracking-tight text-slate-900 hover:text-emerald-700 transition-colors flex items-center gap-2 shrink-0"
         >
-          <span className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
+          <span className="w-7 h-7 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-sm shrink-0">
             LT
           </span>
           <span>LipaTim</span>

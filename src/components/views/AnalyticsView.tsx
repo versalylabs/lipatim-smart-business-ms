@@ -83,13 +83,13 @@ export const AnalyticsView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Executive Analytics &amp; P&amp;L</h1>
+            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Business performance</h1>
             <span className="text-xs font-mono bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-bold border border-emerald-200">
               Consolidated Books
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Consolidated Profit &amp; Loss, multi-branch revenue comparison, KRA iTax VAT return generator, and shift Z-reports.
+            Compare sales, costs and profit across branches.
           </p>
         </div>
 

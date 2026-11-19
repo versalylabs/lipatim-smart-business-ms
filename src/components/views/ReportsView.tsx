@@ -303,14 +303,14 @@ export const ReportsView: React.FC = () => {
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-              Compliance Analytics, Daily Z-Reports &amp; KRA VAT Filing
+              Reports and tax returns
             </h1>
             <span className="text-xs font-mono bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-bold border border-emerald-200">
               VSCU Verified
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Shift-end Z-Report reconciliation, real-time COGS Profit &amp; Loss statement, and 1-Click KRA iTax VAT 3 monthly return export.
+            Print shift summaries and prepare VAT returns.
           </p>
         </div>
 

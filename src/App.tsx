@@ -118,7 +118,7 @@ const MainLayout: React.FC = () => {
 
   if (!session) {
     return (
-      <div className="min-h-screen bg-slate-100 text-slate-900 font-sans">
+      <div className="min-h-screen bg-[#f4f6f4] text-slate-900 font-sans">
         <LoginPage />
         <NotificationToast />
       </div>

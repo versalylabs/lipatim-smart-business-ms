@@ -158,13 +158,13 @@ export const ExpenseView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Expenses &amp; Supplier Ledgers</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Expenses and suppliers</h1>
             <span className="text-xs font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">
               Tax Deductible Opex
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Track commercial rent, KPLC electricity tokens, casual wages, and accounts payable to wholesale suppliers.
+            Record business expenses, supplier purchases and payments.
           </p>
         </div>
 

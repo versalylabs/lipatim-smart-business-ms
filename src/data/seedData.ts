@@ -1024,13 +1024,13 @@ export const INITIAL_MPESA_TRANSACTIONS: MpesaTransaction[] = [
 ];
 
 export const DEFAULT_DARAJA_CONFIG: DarajaConfig = {
-  environment: 'production',
+  environment: 'sandbox',
   businessShortCode: '8841920',
   tillNumber: '8841920',
-  consumerKey: 'k4H89qLLaX892NmpQa2901kL0029',
-  consumerSecret: 'sK921mPqL098811Za9023412',
-  passkey: 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
-  stkCallbackUrl: 'https://api.lipatim.co.ke/v1/daraja/callback',
+  consumerKey: '',
+  consumerSecret: '',
+  passkey: '',
+  stkCallbackUrl: '',
   autoReconcile: true,
 };
 

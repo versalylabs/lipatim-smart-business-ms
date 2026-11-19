@@ -83,6 +83,7 @@ export const SettingsView: React.FC = () => {
   const [newStaffRole, setNewStaffRole] = useState<UserRole>('cashier');
   const [newStaffBranch, setNewStaffBranch] = useState(branches[0]?.id || 'br_cbd');
   const [newStaffPhone, setNewStaffPhone] = useState('+254 7');
+  const [newStaffPin, setNewStaffPin] = useState('');
 
   const [idbStats, setIdbStats] = useState({
     cachedInvoicesCount: invoices.length,
@@ -119,14 +120,20 @@ export const SettingsView: React.FC = () => {
   const handleAddStaff = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newStaffName.trim()) return;
+    if (newStaffRole === 'manager' && !/^\d{4,8}$/.test(newStaffPin)) {
+      notify('error', 'PIN required', 'Set a 4 to 8 digit PIN for each store manager.');
+      return;
+    }
     addStaffUser({
       name: newStaffName.trim(),
       role: newStaffRole,
       assignedBranchId: newStaffBranch,
       phone: newStaffPhone.trim(),
+      pinCode: newStaffRole === 'manager' ? newStaffPin : undefined,
     });
     setNewStaffName('');
     setNewStaffPhone('+254 7');
+    setNewStaffPin('');
     setShowAddStaff(false);
   };
 
@@ -174,10 +181,10 @@ export const SettingsView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            RBAC Security, Dedicated Enterprise Deployment &amp; Hardware Settings
+            Settings and team
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Manage Multi-Role Access Control (Cashier / Manager / Owner-Admin), dedicated workspace tenant, Web Bluetooth ESC/POS printers, and IndexedDB sync.
+            Manage staff access, branches, printer and offline data.
           </p>
         </div>
 
@@ -224,7 +231,7 @@ export const SettingsView: React.FC = () => {
                 </div>
                 <div>
                   <h2 className="text-sm font-bold text-slate-900">
-                    Multi-Role Staff Accounts &amp; Terminal PINs
+                    Staff and roles
                   </h2>
                   <div className="text-[11px] text-slate-500">
                     Active seats: {activeUsersCount} accounts (Dedicated Enterprise System)
@@ -298,6 +305,24 @@ export const SettingsView: React.FC = () => {
                       className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg font-mono text-xs"
                     />
                   </div>
+                  {newStaffRole === 'manager' && (
+                    <div>
+                      <label className="block text-[11px] text-slate-600 mb-1">Manager approval PIN</label>
+                      <input
+                        type="password"
+                        inputMode="numeric"
+                        pattern="[0-9]{4,8}"
+                        minLength={4}
+                        maxLength={8}
+                        required
+                        autoComplete="new-password"
+                        value={newStaffPin}
+                        onChange={(e) => setNewStaffPin(e.target.value.replace(/\D/g, '').slice(0, 8))}
+                        className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-sm"
+                      />
+                      <p className="text-xs text-slate-500 mt-1">4 to 8 digits. It stays hidden in the staff list.</p>
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-end gap-2 pt-1">
                   <button
@@ -311,7 +336,7 @@ export const SettingsView: React.FC = () => {
                     type="submit"
                     className="px-3.5 py-1.5 bg-emerald-600 text-white font-semibold rounded-lg"
                   >
-                    Save &amp; Generate PIN
+                    Save Staff Member
                   </button>
                 </div>
               </form>
@@ -355,8 +380,8 @@ export const SettingsView: React.FC = () => {
                         <td className="py-2.5 pr-2 text-[11px] text-slate-600">
                           {branchObj?.name.replace(' Branch', '') || u.assignedBranchId}
                         </td>
-                        <td className="py-2.5 pr-2 font-mono text-[11px] text-slate-500">
-                          {currentRole === 'admin' ? u.pinCode || '****' : '••••'}
+                        <td className="py-2.5 pr-2 text-xs text-slate-500">
+                          {u.pinCode ? 'Set' : 'Not set'}
                         </td>
                         <td className="py-2.5 text-right space-x-1.5">
                           <button

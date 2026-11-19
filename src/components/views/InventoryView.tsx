@@ -197,13 +197,13 @@ export const InventoryView: React.FC = () => {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Smart Inventory &amp; Stock</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Stock and inventory</h1>
             <span className="text-xs font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">
               {branches.length} Branches Linked
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Goods Received Notes (GRN), inter-branch replenishment, batch expiry tracking, and KRA tax bands.
+            Receive deliveries, track expiry dates and move stock between branches.
           </p>
         </div>
 

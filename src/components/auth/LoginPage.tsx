@@ -43,7 +43,7 @@ export const LoginPage: React.FC = () => {
   const handleFillDemo = () => {
     setMode('LOGIN');
     setLoginEmail(DEMO_ACCOUNT.email);
-    setLoginPassword(DEMO_ACCOUNT.password);
+    setLoginPassword('');
     setErrorMsg('');
   };
 
@@ -128,33 +128,28 @@ export const LoginPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Demo Credentials Callout Pill */}
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl shadow-xs text-xs space-y-2">
+        {/* Demo account shortcut */}
+        <div className="p-4 bg-white border border-slate-200 rounded-xl text-sm space-y-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 font-bold text-emerald-800">
+            <div className="flex items-center gap-2 font-semibold text-slate-800">
               <Sparkles className="w-4 h-4 text-emerald-600" />
-              <span>Current Demo Account</span>
+              <span>Demo business</span>
             </div>
-            <span className="text-[10px] font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold">
-              Pre-seeded Data
+            <span className="text-xs text-slate-500">
+              Sample records
             </span>
           </div>
 
-          <div className="text-[11px] text-slate-700 space-y-0.5 font-mono">
-            <div>
-              Email: <span className="text-slate-900 font-bold">{DEMO_ACCOUNT.email}</span>
-            </div>
-            <div>
-              Password: <span className="text-slate-900 font-bold">{DEMO_ACCOUNT.password}</span>
-            </div>
+          <div className="text-sm text-slate-600">
+            Demo email: <span className="font-semibold text-slate-800">{DEMO_ACCOUNT.email}</span>
           </div>
 
           <button
             type="button"
             onClick={handleFillDemo}
-            className="w-full py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+            className="w-full min-h-10 px-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-1.5"
           >
-            <span>Auto-Fill Demo Credentials</span>
+            <span>Use demo email</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -222,7 +217,6 @@ export const LoginPage: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-slate-700 font-semibold">Password</label>
-                  <span className="text-[10px] text-slate-500 font-medium">Demo: labversaly-16</span>
                 </div>
                 <div className="relative">
                   <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />

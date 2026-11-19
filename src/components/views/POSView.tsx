@@ -395,9 +395,9 @@ export const POSView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-slate-200 shrink-0">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Point of Sale &amp; eTIMS</h1>
+            <h1 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Sales counter</h1>
             <span className="text-[10px] font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold border border-emerald-200">
-              VSCU Live
+              Demo mode
             </span>
           </div>
           <div className="text-xs text-slate-500 mt-0.5">

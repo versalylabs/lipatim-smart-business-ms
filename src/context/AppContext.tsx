@@ -374,6 +374,23 @@ function saveToStorage<T>(key: string, value: T): void {
   }
 }
 
+function loadSafeDarajaConfig(key: string): DarajaConfig {
+  const stored = loadFromStorage<DarajaConfig>(key, DEFAULT_DARAJA_CONFIG);
+  const safeConfig: DarajaConfig = {
+    ...stored,
+    consumerKey: '',
+    consumerSecret: '',
+    passkey: '',
+    stkCallbackUrl: '',
+  };
+
+  if (stored.consumerKey || stored.consumerSecret || stored.passkey || stored.stkCallbackUrl) {
+    saveToStorage(key, safeConfig);
+  }
+
+  return safeConfig;
+}
+
 const VALID_TABS: ActiveTab[] = [
   'dashboard',
   'pos',
@@ -526,7 +543,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     loadFromStorage(getTenantKey(activeTenantId, 'mpesa_txs'), isDemo ? INITIAL_MPESA_TRANSACTIONS : [])
   );
   const [darajaConfig, setDarajaConfig] = useState<DarajaConfig>(() =>
-    loadFromStorage(getTenantKey(activeTenantId, 'daraja_config'), DEFAULT_DARAJA_CONFIG)
+    loadSafeDarajaConfig(getTenantKey(activeTenantId, 'daraja_config'))
   );
 
   const [businessProfile, setBusinessProfile] = useState<{
@@ -997,7 +1014,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setGrns(loadFromStorage(getTenantKey(tId, 'grns'), isDemoTenant ? INITIAL_GRNS : []));
     setHeldOrders(loadFromStorage(getTenantKey(tId, 'held_orders'), []));
     setMpesaTransactions(loadFromStorage(getTenantKey(tId, 'mpesa_txs'), isDemoTenant ? INITIAL_MPESA_TRANSACTIONS : []));
-    setDarajaConfig(loadFromStorage(getTenantKey(tId, 'daraja_config'), DEFAULT_DARAJA_CONFIG));
+    setDarajaConfig(loadSafeDarajaConfig(getTenantKey(tId, 'daraja_config')));
     setAuditLogs(loadFromStorage(getTenantKey(tId, 'audit_logs'), isDemoTenant ? INITIAL_DEMO_AUDIT_LOGS : []));
   };
 
@@ -1191,7 +1208,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       name: u.name || 'New Staff Member',
       username: u.username || `staff_${Date.now().toString().slice(-3)}`,
       role: u.role || 'cashier',
-      pinCode: u.pinCode || '1234',
+      pinCode: u.pinCode,
       phone: u.phone || '+254 722 000 000',
       email: u.email || 'staff@lipatim.co.ke',
       assignedBranchId: u.assignedBranchId || activeBranchId,
