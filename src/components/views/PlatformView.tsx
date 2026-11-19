@@ -112,7 +112,7 @@ export const PlatformView: React.FC = () => {
                   <h3 className="font-semibold text-sm text-slate-900">{tenant.name}</h3>
                   {tenant.id === DEMO_TENANT.id && <span className="text-[10px] uppercase font-bold tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Demo</span>}
                 </div>
-                <p className="text-xs text-slate-500 mt-1">{tenant.ownerName} Â· {tenant.ownerEmail}</p>
+                <p className="text-xs text-slate-500 mt-1">{tenant.ownerName} · {tenant.ownerEmail}</p>
                 <p className="text-[11px] text-slate-400 mt-1">Created {new Date(tenant.createdAt).toLocaleDateString()}</p>
               </div>
               <div className="grid grid-cols-3 gap-4 text-xs lg:w-72">
@@ -143,4 +143,3 @@ const Metric: React.FC<{ icon: React.ReactNode; label: string; value: number }> 
 const Count: React.FC<{ label: string; value: number }> = ({ label, value }) => (
   <div><div className="font-bold text-slate-800">{value}</div><div className="text-[10px] text-slate-500">{label}</div></div>
 );
-
