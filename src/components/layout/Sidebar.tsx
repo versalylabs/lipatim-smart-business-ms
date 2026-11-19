@@ -20,6 +20,7 @@ import {
   LogOut,
   ScrollText,
   Bluetooth,
+  Globe2,
 } from 'lucide-react';
 
 interface NavItem {
@@ -132,6 +133,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
       icon: <Settings className="w-4 h-4" />,
       ownerOnly: true,
     },
+    ...(session?.user.email.toLowerCase() === 'versalylabs@gmail.com'
+      ? [{
+          id: 'platform' as const,
+          label: 'Platform',
+          sublabel: 'Accounts & Usage',
+          icon: <Globe2 className="w-4 h-4" />,
+        }]
+      : []),
   ];
 
   const handleNavClick = (id: ActiveTab) => {

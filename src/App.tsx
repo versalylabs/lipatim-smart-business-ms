@@ -19,6 +19,7 @@ import { ExpenseView } from './components/views/ExpenseView';
 import { ReportsView } from './components/views/ReportsView';
 import { AuditLogView } from './components/views/AuditLogView';
 import { SettingsView } from './components/views/SettingsView';
+import { PlatformView } from './components/views/PlatformView';
 import {
   LayoutDashboard,
   ShoppingCart,
@@ -29,11 +30,12 @@ import {
 } from 'lucide-react';
 
 const MainContent: React.FC = () => {
-  const { activeTab } = useApp();
+  const { activeTab, session } = useApp();
+  const canAccessPlatform = session?.user.email.toLowerCase() === 'versalylabs@gmail.com';
 
   return (
     <main className="flex-1 h-full overflow-y-auto overscroll-contain bg-slate-50/50 min-w-0 pb-16 md:pb-0">
-      {activeTab === 'dashboard' && <ExecutiveDashboard />}
+      {(activeTab === 'dashboard' || (activeTab === 'platform' && !canAccessPlatform)) && <ExecutiveDashboard />}
       {activeTab === 'pos' && <POSView />}
       {activeTab === 'inventory' && <InventoryView />}
       {activeTab === 'etims' && <EtimsView />}
@@ -43,6 +45,7 @@ const MainContent: React.FC = () => {
       {activeTab === 'reports' && <ReportsView />}
       {activeTab === 'audit' && <AuditLogView />}
       {activeTab === 'settings' && <SettingsView />}
+      {activeTab === 'platform' && canAccessPlatform && <PlatformView />}
     </main>
   );
 };
@@ -95,7 +98,7 @@ const MobileBottomNav: React.FC<{ onOpenDrawer: () => void }> = ({ onOpenDrawer 
         type="button"
         onClick={onOpenDrawer}
         className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-[10px] font-semibold transition-colors ${
-          ['etims', 'expenses', 'reports', 'audit', 'settings'].includes(activeTab)
+          ['etims', 'expenses', 'reports', 'audit', 'settings', 'platform'].includes(activeTab)
             ? 'text-emerald-600'
             : 'text-slate-500 hover:text-slate-900'
         }`}

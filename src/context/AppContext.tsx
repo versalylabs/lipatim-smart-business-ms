@@ -97,7 +97,8 @@ export type ActiveTab =
   | 'expenses'
   | 'reports'
   | 'audit'
-  | 'settings';
+  | 'settings'
+  | 'platform';
 
 interface AppContextType {
   // Navigation & View
@@ -384,6 +385,7 @@ const VALID_TABS: ActiveTab[] = [
   'reports',
   'audit',
   'settings',
+  'platform',
 ];
 
 function getInitialActiveTab(): ActiveTab {
@@ -1056,7 +1058,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     return {
       success: false,
-      error: 'Invalid email or password. Use demo email: versalylabs@gmail.com and password: labversaly-16, or register a new account.',
+      error: 'Invalid email or password. Use the demo credentials or register a new account.',
     };
   };
 
